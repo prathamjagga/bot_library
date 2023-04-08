@@ -6,6 +6,7 @@ import os
 import random
 import requests
 import pandas as pd
+from botFuncs.basic import recognize_simple_message, ask_anything_flow
 
 from botbuilder.core import ActivityHandler, TurnContext, CardFactory, MessageFactory
 from botbuilder.schema import ChannelAccount, Attachment, Activity, ActivityTypes
@@ -53,22 +54,21 @@ class AdaptiveCardsBot(ActivityHandler):
         response = requests.get("https://www.greetingsapi.com/random")
         json_data = response.json()
         print("LOGGER--", json_data['greeting'])
+
         if (str(turn_context.activity.text).__contains__("analyse")):
             return await turn_context.send_activity(MessageFactory.text("Sure, please send the data"))
 
         if turn_context.activity.attachments:
             return await turn_context.send_activity(MessageFactory.text("Average sales are 75 per day"))
-        if turn_context.activity.text == "hi":
-            return await turn_context.send_activity(
-                MessageFactory.text(json_data['greeting'] + " from pratham")
-            )
-        elif 1 == 2:
-            pass
-        elif (str(turn_context.activity.text).__contains__("chocolates") or str(turn_context.activity.text).__contains__("get me")):
-            return await turn_context.send_activity(
-                MessageFactory.text(
-                    json_data['greeting'] + " from pratham\n \n you can order chcocs from https://flipkart.com")
-            )
+
+        msg_type, resp = recognize_simple_message(turn_context.activity.text)
+
+        if msg_type == "greeting" or msg_type == "leaving":
+            return await turn_context.send_activity(MessageFactory.text(resp))
+
+        if msg_type == "other":
+            return await turn_context.send_activity(MessageFactory.text(ask_anything_flow(turn_context.activity.text)))
+
         await turn_context.send_activity(message)
 
     def _create_adaptive_card_attachment(self) -> Attachment:

@@ -19,6 +19,7 @@ from botbuilder.schema import Activity, ActivityTypes
 from bots import AdaptiveCardsBot
 from config import DefaultConfig
 
+
 CONFIG = DefaultConfig()
 
 # Create adapter.
