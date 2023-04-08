@@ -1,0 +1,60 @@
+{
+    "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.0",
+    "body": [
+      {
+        "type": "TextBlock",
+        "text": "Here are some cool photos",
+        "size": "large"
+      },
+      {
+        "type": "TextBlock",
+        "text": "Sorry some of them are repeats",
+        "size": "medium",
+        "weight": "lighter"
+      },
+      {
+        "type": "ImageSet",
+        "imageSize": "medium",
+        "images": [
+          {
+            "type": "Image",
+            "url": "https://media.licdn.com/dms/image/C5603AQHJC77JzY9bhw/profile-displayphoto-shrink_800_800/0/1648960799060?e=1686182400&v=beta&t=Ix3OxVYF6hy_MhPgB3rMV-TdOTxREVe1_4rphRG9oW0"
+          },
+          {
+            "type": "Image",
+            "url": "https://media.licdn.com/dms/image/C5603AQHJC77JzY9bhw/profile-displayphoto-shrink_800_800/0/1648960799060?e=1686182400&v=beta&t=Ix3OxVYF6hy_MhPgB3rMV-TdOTxREVe1_4rphRG9oW0"
+          },
+          {
+            "type": "Image",
+            "url": "https://picsum.photos/300/200?image=301"
+          },
+          {
+            "type": "Image",
+            "url": "https://picsum.photos/200/200?image=400"
+          },
+          {
+            "type": "Image",
+            "url": "https://picsum.photos/300/200?image=500"
+          },
+          {
+            "type": "Image",
+            "url": "https://picsum.photos/200/200?image=600"
+          },
+          {
+            "type": "Image",
+            "url": "https://picsum.photos/300/200?image=700"
+          },
+          {
+            "type": "Image",
+            "url": "https://picsum.photos/300/200?image=800"
+          },
+          {
+            "type": "Image",
+            "url": "https://picsum.photos/300/200?image=900"
+          }
+        ]
+      }
+    ]
+  }
